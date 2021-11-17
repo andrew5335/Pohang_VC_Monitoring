@@ -1,0 +1,2 @@
+rootProject.name = "Pohang VC Monitoring"
+include ':app'
