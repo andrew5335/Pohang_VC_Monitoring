@@ -3,6 +3,7 @@ package com.andrew.pvcm.service;
 import android.util.Log;
 
 import com.andrew.pvcm.api.InsertLocation;
+import com.andrew.pvcm.api.InsertSensor;
 import com.andrew.pvcm.api.LocationJson;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class ApiService {
 
     private List<LocationJson> locationList;
     private InsertLocation apiResponse;
+    private InsertSensor sensorResponse;
 
     public List<LocationJson> getLocationList(String deviceId) {
 
@@ -43,18 +45,38 @@ public class ApiService {
 
         if(null != deviceId && null != deviceLatitude && !("0.0").equals(deviceLatitude) && null != deviceLongitude && !("0.0").equals(deviceLongitude)) {
             try {
-                Log.i("Info", "insert info : " + deviceId + "/" + deviceLatitude + "/" + deviceLongitude);
+                Log.i("Location insert", "insert info : " + deviceId + "/" + deviceLatitude + "/" + deviceLongitude);
                 InsertLocation.InsertLocatonInterface service = client.create(InsertLocation.InsertLocatonInterface.class);
                 Call<InsertLocation> call = service.insertLocation(deviceId, deviceLatitude, deviceLongitude);
 
                 apiResponse = call.execute().body();
-                Log.i("Info", "apiresponse : " + apiResponse);
+                Log.i("Location insert", "apiresponse : " + apiResponse);
             } catch (Exception e) {
                 e.printStackTrace();
-                Log.e("Error", "Error insert location info");
+                Log.e("Location insert", "Error insert location info : " + e.toString());
             }
         }
 
         return apiResponse;
+    }
+
+    public InsertSensor insertSensor(String deviceId, String deviceAcx, String deviceAcy, String deviceAcz, String deviceGyx, String deviceGyy, String deviceGyz) {
+        sensorResponse = new InsertSensor();
+
+        if(null != deviceId) {
+            try {
+                Log.i("Sensor insert", "insert info : " + deviceId + "/" + deviceAcx + "/" + deviceAcy + "/" + deviceAcz + "/" + deviceGyx + "/" + deviceGyy + "/" + deviceGyz);
+                InsertSensor.InsertSensorInterface service = client.create(InsertSensor.InsertSensorInterface.class);
+                Call<InsertSensor> call = service.insertSensor(deviceId, deviceAcx, deviceAcy, deviceAcz, deviceGyx, deviceGyy, deviceGyz);
+
+                sensorResponse = call.execute().body();
+                Log.i("Sensor insert", "sensorResponse : " + sensorResponse);
+            } catch(Exception e) {
+                Log.e("Sensor insert", "Error insert sensor info : " + e.toString());
+            }
+
+        }
+
+        return sensorResponse;
     }
 }

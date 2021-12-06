@@ -58,9 +58,11 @@
             android:layout_margin="1dp">
 
             <TextView
+                android:id="@+id/vc_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="status"
+                android:textSize="50dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -87,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="#FFF"
-                    android:text="GYRO Sensor"
+                    android:text="Degree"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_margin="1dp"/>
@@ -96,6 +98,7 @@
                     android:id="@+id/gyro_pitch"
                     android:layout_weight="1"
                     android:textColor="#FFF"
+                    android:layout_marginLeft="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -103,6 +106,7 @@
                     android:id="@+id/gyro_roll"
                     android:layout_weight="1"
                     android:textColor="#FFF"
+                    android:layout_marginLeft="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -110,6 +114,7 @@
                     android:id="@+id/gyro_yaw"
                     android:layout_weight="1"
                     android:textColor="#FFF"
+                    android:layout_marginLeft="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -126,17 +131,18 @@
                 <TextView
                     android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
+                    android:layout_height="50dp"
                     android:background="#FFF"
-                    android:text="Accel Sensor"
+                    android:text="Speed"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_margin="1dp"/>
 
-                <TextView
+                <!--TextView
                     android:id="@+id/accel_speed"
                     android:layout_weight="1"
                     android:textColor="#FFF"
+                    android:layout_marginLeft="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -144,15 +150,22 @@
                     android:id="@+id/accel_no_speed"
                     android:layout_weight="1"
                     android:textColor="#FFF"
+                    android:layout_marginLeft="2dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content" /-->
 
                 <TextView
                     android:id="@+id/accel_linear_speed"
                     android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="speed"
                     android:textColor="#FFF"
+                    android:textSize="35dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 
@@ -167,11 +180,126 @@
         android:gravity="center"
         android:layout_gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="battery info"
-            android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:background="#4A148C">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SOC "
+                    android:textSize="30dp"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:layout_margin="1dp">
+
+                <TextView
+                    android:id="@+id/vc_soc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="30dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:background="#3CAEFF">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전압"
+                    android:textSize="30dp"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:layout_margin="1dp">
+
+                <TextView
+                    android:id="@+id/vc_voltage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="30dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:background="#C62828">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="온도"
+                    android:textSize="30dp"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:layout_margin="1dp">
+
+                <TextView
+                    android:id="@+id/vc_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="30dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

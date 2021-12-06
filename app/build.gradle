@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.andrew.pvcm"
@@ -28,10 +28,12 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.appcompat:appcompat:1.4.0'
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+
+    //implementation 'androidx.appcompat:appcompat:1.2.0'
+    //implementation 'com.google.android.material:material:1.2.1'
+    //implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -44,4 +46,12 @@ dependencies {
     //implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     //implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    implementation 'com.github.harry1453:android-bluetooth-serial:v1.1'
+
+    // RxJava is also required.
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.12'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    implementation 'com.akexorcist:bluetoothspp:1.0.0'
 }

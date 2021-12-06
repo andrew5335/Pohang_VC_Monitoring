@@ -1,5 +1,6 @@
 package com.andrew.pvcm.activity;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,6 +36,7 @@ public class ViewPathActivity extends AppCompatActivity {
     private List<LocationJson> locatoinJsonList;
     private List<Map<String, Object>> resultList;
     private String deviceId;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,10 @@ public class ViewPathActivity extends AppCompatActivity {
         apiService = new ApiService();
         locatoinJsonList = new ArrayList<LocationJson>();
         resultList = new ArrayList<Map<String, Object>>();
-        deviceId = "12345";
+
+        preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
+        deviceId = preferences.getString("uuid", "");
+        Log.i("INFO", "=====deviceId2 : " + deviceId);
 
         pathView = new MapView(this);
         pathView.setMapType(MapView.MapType.Standard);
