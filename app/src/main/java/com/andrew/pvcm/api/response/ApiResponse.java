@@ -11,6 +11,11 @@ public class ApiResponse implements Serializable {
     @SerializedName("resultCode") String resultCode;
     @SerializedName("result") String result;
 
-    public String getResultCode() { return resultCode; }
-    public String getResult() { return result; }
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public String getResult() {
+        return result;
+    }
 }

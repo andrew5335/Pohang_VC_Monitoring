@@ -17,7 +17,7 @@ import com.andrew.pvcm.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 200;
+    private final int SPLASH_DISPLAY_LENGTH = 200;    // 스플래시 화면 유지 시간 - 0.2초로 설정
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
@@ -27,7 +27,6 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        Log.d("TimeCheck", "start");
 
         checkRunTimePermission();
     }
@@ -82,7 +81,6 @@ public class SplashActivity extends AppCompatActivity {
             }
 
             if ( check_result ) {
-                Log.d("@@@", "start");
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -97,10 +95,10 @@ public class SplashActivity extends AppCompatActivity {
             }
             else {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])) {
-                    Toast.makeText(SplashActivity.this, "퍼미션이 거부되었습니다. 앱을 다시 실행하여 퍼미션을 허용해주세요.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SplashActivity.this, "권한 요청이 거부되었습니다. 앱을 다시 실행하여 퍼미션을 허용해주세요.", Toast.LENGTH_LONG).show();
                     finish();
                 }else {
-                    Toast.makeText(SplashActivity.this, "퍼미션이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SplashActivity.this, "권한 요청이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. ", Toast.LENGTH_LONG).show();
                 }
             }
         }

@@ -16,8 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiService {
 
     private String eye2webHost = "http://eye2web.co.kr";
-    private Retrofit client = new Retrofit.Builder().baseUrl(eye2webHost)
-            .addConverterFactory(GsonConverterFactory.create()).build();
+    private Retrofit client = new Retrofit.Builder().baseUrl(eye2webHost).addConverterFactory(GsonConverterFactory.create()).build();
 
     private List<LocationJson> locationList;
     private InsertLocation apiResponse;
@@ -44,8 +43,10 @@ public class ApiService {
         apiResponse = new InsertLocation();
 
         if(null != deviceId && null != deviceLatitude && !("0.0").equals(deviceLatitude) && null != deviceLongitude && !("0.0").equals(deviceLongitude)) {
+
             try {
                 Log.i("Location insert", "insert info : " + deviceId + "/" + deviceLatitude + "/" + deviceLongitude);
+
                 InsertLocation.InsertLocatonInterface service = client.create(InsertLocation.InsertLocatonInterface.class);
                 Call<InsertLocation> call = service.insertLocation(deviceId, deviceLatitude, deviceLongitude);
 
@@ -61,11 +62,16 @@ public class ApiService {
     }
 
     public InsertSensor insertSensor(String deviceId, String deviceAcx, String deviceAcy, String deviceAcz, String deviceGyx, String deviceGyy, String deviceGyz) {
+
         sensorResponse = new InsertSensor();
 
         if(null != deviceId) {
+
             try {
-                Log.i("Sensor insert", "insert info : " + deviceId + "/" + deviceAcx + "/" + deviceAcy + "/" + deviceAcz + "/" + deviceGyx + "/" + deviceGyy + "/" + deviceGyz);
+                Log.i("Sensor insert", "insert info : " + deviceId + "/"
+                        + deviceAcx + "/" + deviceAcy + "/" + deviceAcz
+                        + "/" + deviceGyx + "/" + deviceGyy + "/" + deviceGyz);
+
                 InsertSensor.InsertSensorInterface service = client.create(InsertSensor.InsertSensorInterface.class);
                 Call<InsertSensor> call = service.insertSensor(deviceId, deviceAcx, deviceAcy, deviceAcz, deviceGyx, deviceGyy, deviceGyz);
 

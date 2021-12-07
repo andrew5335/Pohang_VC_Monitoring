@@ -18,15 +18,38 @@ public class LocationJson implements Serializable {
     @SerializedName("deviceLongitude") String deviceLongitude;
     @SerializedName("insertDate") String insertDate;
 
-    public String getDeviceId() { return deviceId; }
-    public String getDeviceLatitude() { return deviceLatitude; }
-    public String getDeviceLongitude() { return deviceLongitude; }
-    public String getInsertDate() { return insertDate; }
+    public String getDeviceId() {
+        return deviceId;
+    }
 
-    public void setDeviceId(String deviceId) { this.deviceId = deviceId; }
-    public void setDeviceLatitude(String deviceLatitude) { this.deviceLatitude = deviceLatitude; }
-    public void setDeviceLongitude(String deviceLongitude) { this.deviceLongitude = deviceLongitude; }
-    public void setInsertDate(String insertDate) { this.insertDate = insertDate; }
+    public String getDeviceLatitude() {
+        return deviceLatitude;
+    }
+
+    public String getDeviceLongitude() {
+        return deviceLongitude;
+    }
+
+    public String getInsertDate() {
+        return insertDate;
+    }
+
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public void setDeviceLatitude(String deviceLatitude) {
+        this.deviceLatitude = deviceLatitude;
+    }
+
+    public void setDeviceLongitude(String deviceLongitude) {
+        this.deviceLongitude = deviceLongitude;
+    }
+
+    public void setInsertDate(String insertDate) {
+        this.insertDate = insertDate;
+    }
 
     public interface LocationJsonInterface {
         @GET("/pohang/api/getLocation.php?apiKeyVal=ehdus77")

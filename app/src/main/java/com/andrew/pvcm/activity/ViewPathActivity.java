@@ -49,7 +49,6 @@ public class ViewPathActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
         deviceId = preferences.getString("uuid", "");
-        Log.i("INFO", "=====deviceId2 : " + deviceId);
 
         pathView = new MapView(this);
         pathView.setMapType(MapView.MapType.Standard);
@@ -82,7 +81,6 @@ public class ViewPathActivity extends AppCompatActivity {
     }
 
     public List<Map<String, Object>> getPathList(String deviceId) {
-        //List<Map<String, Object>> resultList = new ArrayList<Map<String, Object>>();
 
         // DB에 저장된 경로 정보를 가져와 지도에 표시
         handler = new Handler();
@@ -103,12 +101,6 @@ public class ViewPathActivity extends AppCompatActivity {
                             polyLine.setLineColor(Color.RED);
 
                             for(int i=0; i < locatoinJsonList.size(); i++) {
-                                /**
-                                Map<String, Object> locMap = new HashMap<String, Object>();
-                                locMap.put("lat", Double.parseDouble(String.valueOf(locatoinJsonList.get(i).getDeviceLatitude())));
-                                locMap.put("lng", Double.parseDouble(String.valueOf(locatoinJsonList.get(i).getDeviceLongitude())));
-                                resultList.add(locMap);
-                                 **/
                                 double lat = Double.parseDouble(String.valueOf(locatoinJsonList.get(i).getDeviceLatitude()));
                                 double lng = Double.parseDouble(String.valueOf(locatoinJsonList.get(i).getDeviceLongitude()));
                                 polyLine.addPoint(MapPoint.mapPointWithGeoCoord(lat, lng));
@@ -126,28 +118,6 @@ public class ViewPathActivity extends AppCompatActivity {
                 });
             }
         }).start();
-        // 아래는 DB 정보를 가져오기 전 보여주기용 샘플
-        /**
-        Map<String, Object> pointMap = new HashMap<String, Object>();
-        pointMap.put("lat", 37.537229);
-        pointMap.put("lng", 127.005515);
-        resultList.add(pointMap);
-
-        pointMap = new HashMap<String, Object>();
-        pointMap.put("lat", 37.545024);
-        pointMap.put("lng", 127.03923);
-        resultList.add(pointMap);
-
-        pointMap = new HashMap<String, Object>();
-        pointMap.put("lat", 37.527896);
-        pointMap.put("lng", 127.036245);
-        resultList.add(pointMap);
-
-        pointMap = new HashMap<String, Object>();
-        pointMap.put("lat", 37.541889);
-        pointMap.put("lng", 127.095388);
-        resultList.add(pointMap);
-         **/
 
         Log.i("Info", "resultList size : " + resultList.size());
         return resultList;

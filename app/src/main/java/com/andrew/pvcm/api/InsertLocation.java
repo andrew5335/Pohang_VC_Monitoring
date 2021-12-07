@@ -15,18 +15,30 @@ public class InsertLocation implements Serializable {
     @SerializedName("resultCode") String resultCode;
     @SerializedName("result") String result;
 
-    public String getResultCode() { return resultCode; }
-    public String getResult() { return result; }
+    public String getResultCode() {
+        return resultCode;
+    }
 
-    public void setResultCode(String resultCode) { this.resultCode = resultCode; }
-    public void setResult(String result) { this.result = result; }
+    public String getResult() {
+        return result;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
 
     public interface InsertLocatonInterface {
+
         @GET("/pohang/api/insertLocation.php?apiKeyVal=ehdus77")
         Call<InsertLocation> insertLocation(
                 @Query("deviceId") String deviceId
                 , @Query("deviceLatitude") String deviceLatitude
                 , @Query("deviceLongitude") String deviceLongitude
         );
+
     }
 }
